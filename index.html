@@ -81,8 +81,15 @@
       <section class="grid grid-cols-12 gap-7 w-11/12 mx-auto">
         <div class="catagories text-2xl font-semibold col-span-2">
           <h2>Categories</h2>
+          <button class="btn btn-outline btn-success w-full mb-1">
+            All Categories
+          </button>
+          <div id="categories-container"></div>
         </div>
-        <div class="cards grid-cols-3 grid gap-7 col-span-8">
+        <div
+          id="card-container"
+          class="cards grid-cols-3 grid gap-7 col-span-8"
+        >
           <div class="card bg-base-100 w-96 shadow-sm p-4 max-w-80">
             <figure>
               <img
@@ -109,63 +116,16 @@
               </button>
             </div>
           </div>
-          <div class="card bg-base-100 w-96 shadow-sm p-4 max-w-80">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-                title=""
-              />
-            </figure>
-            <div class="card-body">
-              <h2 class="card-title">Mango Tree</h2>
-              <p>
-                A fast-growing tropical tree that produces delicious, juicy
-                mangoes during summer. Its dense green
-              </p>
-              <div class="flex justify-between">
-                <div class="badge bg-[#DCFCE7]">Fruit Tree</div>
-                <div class="font-semibold text-xl">৳500</div>
-              </div>
-              <button
-                class="btn btn-active btn-success rounded-full text-white text-xl bg-[#15803D]"
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div class="card bg-base-100 w-96 shadow-sm p-4 max-w-80">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-                title=""
-              />
-            </figure>
-            <div class="card-body">
-              <h2 class="card-title">Mango Tree</h2>
-              <p>
-                A fast-growing tropical tree that produces delicious, juicy
-                mangoes during summer. Its dense green
-              </p>
-              <div class="flex justify-between">
-                <div class="badge bg-[#DCFCE7]">Fruit Tree</div>
-                <div class="font-semibold text-xl">৳500</div>
-              </div>
-              <button
-                class="btn btn-active btn-success rounded-full text-white text-xl bg-[#15803D]"
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
         </div>
         <div
+          id="cart"
           class="cart col-span-2 bg-base-100 p-4 rounded-md text-2xl font-semibold"
         >
           <h2>Your Cart</h2>
         </div>
       </section>
     </main>
+
+    <script src="./script.js"></script>
   </body>
 </html>
