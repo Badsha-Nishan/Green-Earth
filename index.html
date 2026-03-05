@@ -79,20 +79,24 @@
         Choose Your Trees
       </h2>
       <section class="grid grid-cols-12 gap-7 w-11/12 mx-auto">
+        <!-- Categories -->
         <div class="catagories text-2xl font-semibold col-span-2">
-          <h2>Categories</h2>
+          <h2 class="mb-4 text-center">Categories</h2>
           <button class="btn btn-outline btn-success w-full mb-1">
             All Categories
           </button>
-          <div id="categories-container"></div>
+          <div id="categories-container" class="sticky top-10"></div>
         </div>
+
+        <!-- Cards -->
         <div
           id="card-container"
           class="cards grid-cols-3 grid gap-7 col-span-8"
         >
-          <div class="card bg-base-100 w-96 shadow-sm p-4 max-w-80">
+          <!-- <div class="card bg-base-100 w-96 shadow-sm p-4 max-w-80">
             <figure>
               <img
+                class="max-w-80"
                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                 alt="Shoes"
                 title=""
@@ -115,8 +119,10 @@
                 Add to Cart
               </button>
             </div>
-          </div>
+          </div> -->
         </div>
+
+        <!-- Cart -->
         <div
           id="cart"
           class="cart col-span-2 bg-base-100 p-4 rounded-md text-2xl font-semibold"
