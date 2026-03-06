@@ -82,9 +82,7 @@
         <!-- Categories -->
         <div class="catagories text-2xl font-semibold col-span-2">
           <h2 class="mb-4 text-center">Categories</h2>
-          <button class="btn btn-outline btn-success w-full mb-1">
-            All Categories
-          </button>
+          <button id="allBtn" class="btn text-[#15803D] btn-success w-full mb-1">All Categories</button>
           <div id="categories-container" class="sticky top-10"></div>
         </div>
 
@@ -120,6 +118,14 @@
               </button>
             </div>
           </div> -->
+
+          <!-- Loading Spinner -->
+          <div
+            id="loadingSpinner"
+            class="h-[60vh] justify-center items-center hidden"
+          >
+            <span class="loading loading-ring loading-xl"></span>
+          </div>
         </div>
 
         <!-- Cart -->

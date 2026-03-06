@@ -1,6 +1,18 @@
 const categoriesContainer = document.getElementById("categories-container");
 const cardsContainer = document.getElementById("card-container");
+const spinner = document.getElementById("loadingSpinner");
+const allBtn = document.getElementById("allBtn");
 
+const showLoading = () => {
+  spinner.classList.remove("hidden");
+  spinner.classList.add("flex");
+  cardsContainer.innerHTML = "";
+};
+
+const hideLoading = () => {
+  spinner.classList.add("hidden");
+  spinner.classList.remove("flex");
+};
 // Load Categories Button
 const loadCategories = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
@@ -12,18 +24,54 @@ const loadCategories = () => {
 const displayCategories = (categories) => {
   for (const category of categories) {
     const categoreisBtn = document.createElement("button");
-    categoreisBtn.className = "btn btn-outline btn-success w-full mb-1";
+    categoreisBtn.className = "btn btn-outline text-[#15803D] w-full mb-1";
     const categoryName = category.category_name;
     categoreisBtn.innerText = categoryName;
+    categoreisBtn.onclick = () => selectCategory(category.id, categoreisBtn);
     categoriesContainer.appendChild(categoreisBtn);
   }
 };
 
+const selectCategory = async (id, btn) => {
+  showLoading();
+
+  const allButtons = document.querySelectorAll(
+    "#categories-container button, #allBtn"
+  );
+  allButtons.forEach((btn) => {
+    btn.classList.remove("btn-success");
+    btn.classList.add("btn-outline");
+  });
+  btn.classList.add("btn-success");
+  btn.classList.remove("btn-outline");
+
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/category/${id}`
+  );
+  const data = await res.json();
+  displayCards(data.plants);
+};
+
+allBtn.addEventListener("click", () => {
+  const allButtons = document.querySelectorAll(
+    "#card-container button, #allBtn"
+  );
+  allButtons.forEach((btn) => {
+    btn.classList.remove("btn-success");
+    btn.classList.add("btn-outline");
+  });
+
+  allBtn.classList.add("btn-success");
+  allBtn.classList.remove("btn-outline");
+  loadCards();
+});
 // Load Cards
-const loadCards = () => {
-  fetch("https://openapi.programming-hero.com/api/plants")
-    .then((res) => res.json())
-    .then((data) => displayCards(data.plants));
+const loadCards = async () => {
+  showLoading();
+  const res = await fetch("https://openapi.programming-hero.com/api/plants");
+  const data = await res.json();
+  hideLoading();
+  displayCards(data.plants);
 };
 
 // Display Cards
